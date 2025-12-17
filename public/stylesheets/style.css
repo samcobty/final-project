@@ -1,8 +1,248 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/* General Page Layout */
+:root {
+    --primary-blue: #2c7da0;
+    --dark-blue: #2980b9;
+    --tray-border: #236480;
+    --white: #ffffff;
+    --shadow: #0000001a;
 }
 
-a {
-  color: #00B7FF;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+    background-color: var(--primary-blue);
+    color: #333;
+    text-align: center;
+    margin: 0;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--white);
+}
+
+/* LAYOUT */
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    gap: 30px;
+    padding: 20px;
+    flex-wrap: wrap;
+    min-height: 80vh;
+}
+
+.tray-section { 
+    flex: 2; 
+    min-width: 300px; 
+}
+
+/* Control Panel */
+.controls {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    background: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 0 2px 5px var(--shadow);
+}
+
+input[type="text"], button {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    margin-left: 5px;
+    border-radius: 18px;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background-color: #5FB0D3;
+}
+
+/* Tray */
+.coin-display-area {
+    position: relative; 
+    width: 90%;
+    max-width: 800px;
+    height: 60vh;
+    margin: 0 auto;
+    background-color: var(--primary-blue);
+    border: 3px solid var(--tray-border);
+    border-radius: 45px;
+    box-shadow: inset 0 0 65px #0000004d, 0 5px 5px var(--shadow);
+    overflow: hidden;
+}
+
+/* Coins */
+.coin-specimen {
+    position: absolute; 
+    cursor: grab;
+    width: 60px;
+    height: 60px;
+    background-color: #d5a991; 
+    background-size: cover;
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 0 3px 5px #00000066;
+    transition: scale 0.2s ease, box-shadow 0.2s;
+    user-select: none; /* Prevents text selection while dragging */
+    touch-action: none; 
+}
+
+.coin-specimen:hover {
+    scale: 1.1; /* Modern property: doesn't overwrite your JS rotation! */
+    z-index: 10;
+    box-shadow: 0 6px 12px #00000080;
+}
+
+.coin-specimen:active {
+    cursor: grabbing;
+}
+
+/* Log Sidebar */
+.log-sidebar {
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    background: var(--white);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow);
+    height: fit-content;
+}
+
+.log-mask {
+    height: 300px;
+    overflow-y: auto;
+    position: relative;
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+#activityFeed {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left; 
+    margin-left: 5px;
+}
+
+#activityFeed li {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/*Filter buttons*/
+.log-filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: var(--primary-blue);
+    border: none;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.filter-btn:hover {
+    background-color: #5FB0D3;
+    color: white;
+}
+
+/*Pop-ups*/
+.intro-modal {
+    max-width: 400px; /* Slightly wider for instructions */
+    border: 3px solid var(--primary-blue);
+    animation: slideDown 0.4s ease-out;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+#closeIntroBtn {
+    margin-top: 15px;
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-overlay {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-box-simple {
+    background: #fff;
+    padding: 25px;      
+    border-radius: 12px;
+    width: 70%;         
+    max-width: 250px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+    text-align: center;
+}
+
+.modal-box-simple h2 {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.modal-box-simple p {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.close-btn-simple {
+    position: absolute;
+    top: 10px; 
+    right: 15px; 
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 1; 
+    cursor: pointer;
+    color: #999;
+    transition: color 0.2s;
+}
+
+.close-btn-simple:hover {
+    color: #333; 
+}
+
+#modalActionBtn {
+    padding: 8px 16px;
+    font-size: 14px;
 }

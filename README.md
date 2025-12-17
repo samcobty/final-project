@@ -1,29 +1,29 @@
 # MEDP33100 - Final Project, Public Archive
 
 ## Live Demo
-
 - Include a link to the live version of the project hosted on Render.
 
 ## Project Overview
-
-- Briefly describe the project and its purpose.
+I created a virtual take a penny, leave a penny tray. It allows users to enter their name and "leave" and/or "pick up" pennies. They can also view how other users interact with the tray through an interactive log.
 
 ## Endpoints
-
-- List all the endpoints of the API in this project with a brief description of what each endpoint does.
+GET to retrieve all pennies
+POST to create new penny
+PUT to update the status of a penny if it is "taken"
 
 ## Technologies Used
-
-- List the technologies and tools used in the project:
     - **Languages**: HTML, CSS, JavaScript
-    - **Libraries**: (e.g., GSAP for animations)
-    - **Other**: Figma for design, Adobe Illustrator for illustrations, OpenAI for A.I. generated assets, etc.
+    - **Other**: Gemini for some front end javascript code
 
 ## Credits
+Color scheme: https://coolors.co/012a4a-013a63-01497c-014f86-2a6f97-5fb0d3-468faf-61a5c2-89c2d9-a9d6e5
 
-- List any third-party assets used in the project (e.g., sound effects, images, fonts) and provide proper attribution.
-- Acknowledge any resources, tutorials, or references you used to help complete the project.
+Images: penny_front.png https://en.wikipedia.org/wiki/File:US_One_Cent_Obv.png 
+        penny_back.png https://en.wikipedia.org/wiki/File:2005_Penny_Rev_Unc_D.png
+
+Audio: coin_drop.wav https://freesound.org/s/368203/
+       coin_pickup.wav https://freesound.org/s/699530/
 
 ## Future Enhancements
-
-- List any features you would’ve liked to add if given more time
+- Animations like coin flips
+- More realistic styling

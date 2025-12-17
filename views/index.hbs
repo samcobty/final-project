@@ -1,2 +1,52 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="main-container">
+    <!--Tray-->
+    <div class="tray-section">
+        <h1>Take A Penny, Leave A Penny</h1>
+
+        <div class="coin-display-area" id="coinArea"></div>
+        
+        <div class="controls">
+            <input type="text" id="nameInput" placeholder="Your Name">
+            <button id="leavePenny">Leave a Penny</button>
+            <p id="feedbackMessage"></p>
+        </div>
+        </div>
+
+    <!--Log Sidebar-->
+    <div class="log-sidebar">
+        <h3>Tray History</h3>
+        <div class="log-filters">
+        <button onclick="displayActivityLog('all')" class="filter-btn active">All</button>
+        <button onclick="displayActivityLog('circulating')" class="filter-btn">Left</button>
+        <button onclick="displayActivityLog('taken')" class="filter-btn">Taken</button>
+        </div>
+        <div class="log-mask">
+            <ul id="activityFeed"></ul>
+        </div>
+    </div>
+
+</div> 
+
+<!-- Welcome pop-up-->
+<div id="introOverlay" class="modal-overlay">
+    <div class="modal-box-simple intro-modal">
+        <h2>Virtual Take A Penny, Leave A Penny Tray</h2>
+        <div class="modal-body">
+            <p>Rules of the tray:</p>
+            <p>Pick up a penny if you need one.</p>
+            <p>Write your name and leave a penny for someone else.</p>
+        </div>
+        <button id="closeIntroBtn">Got it!</button>
+    </div>
+</div>
+
+<!--Take penny pop-up-->
+<div id="modalOverlay" class="modal-overlay">
+    <div class="modal-box-simple">
+        <span id="closeModal" class="close-btn-simple">&times;</span>
+        <h2 id="modalTitle">Details</h2>
+        <div id="modalBody">
+        </div>
+        <button id="modalActionBtn">Take Penny</button>
+    </div>
+</div>
