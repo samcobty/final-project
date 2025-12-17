@@ -1,7 +1,7 @@
 # MEDP33100 - Final Project, Public Archive
 
 ## Live Demo
-- Include a link to the live version of the project hosted on Render.
+https://final-project-st2l.onrender.com/
 
 ## Project Overview
 I created a virtual take a penny, leave a penny tray. It allows users to enter their name and "leave" and/or "pick up" pennies. They can also view how other users interact with the tray through an interactive log.
