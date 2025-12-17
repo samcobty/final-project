@@ -4,7 +4,7 @@
 https://final-project-st2l.onrender.com/
 
 ## Project Overview
-I created a virtual take a penny, leave a penny tray. It allows users to enter their name and "leave" and/or "pick up" pennies. They can also view how other users interact with the tray through an interactive log.
+I created a virtual take a penny, leave a penny tray. It allows users to enter their name and "leave" and/or "pick up" pennies. They can view how other users interact with the tray through an interactive log. Users can also interact with the pennies by dragging them around the tray.
 
 ## Endpoints
 GET to retrieve all pennies
